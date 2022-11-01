@@ -7,7 +7,7 @@ A partir des cabinets actifs référencés, les infirmières et infirmirmiers d'
 
 ## Stack
 
-Pour la recherche des adresses, j'utilise l'API Nominatim d'openstreet map
+Pour la recherche des adresses, j'utilise l'API Adresse du gouvernement
 Pour l'affichage d'une carte, j'utilise l'API leaflet.js
 Pour le calcul d'itinéraires, j'utilise l'API openroute service
 
