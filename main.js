@@ -83,26 +83,19 @@ function swapped(array) {
 }
 
 
+
 async function main() {
 
 
     let coordinates = await getLocationFromQueryFrance("255 avenue Jean Morin 74800 La Roche sur foron")
     let map = initMap(coordinates, 'map')
-   /* let iso = await getIsochrone(coordinates, 1500);
-    plotIsochrone(map, iso)*/
-
-
-    //let fabienne = await getLocationFromQueryFrance("33 place Albert Clavel 74800 Roche sur Foron")
-    let fabienne = await getLocationFromQuery("14+rue+de+profaty+74800+La+Roche+Sur+Foron")
-
-    plotPoint(map, fabienne)
-    /*let fabIso = await getIsochrone(fabienne, 1500);
-    plotIsochrone(map,fabIso, 'red')*/
-    /*
-    let cornier = await getLocationFromFrance("72 route Vignettaz 74800 Cornier")
-    plotPoint(map, cornier)
-    let cornierIso = await getIsochrone(cornier, 1500);
-    plotIsochrone(map,cornierIso, 'green')*/
+    let res = await fetch('office.json', {mode: 'no-cors'})
+    let cab = await res.json();
+    
+    for(let elt of cab){
+        plotPoint(map, elt.location);
+        plotIsochrone(map,elt.isochrone, 'blue')
+    }
 }
 
 main();
