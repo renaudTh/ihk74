@@ -90,16 +90,20 @@ async function getLocation(address) {
 async function createDataBase(all) {
     let cleaned = []
     let addresses = new Map()
+    let id = 0;
     for (let entry of all) {
 
         let office = await buildOffice(entry.resource)
         let hash = hashAddress(office.address)
         if (!addresses.has(hash)) {
             addresses.set(hash, true)
+            office.id = id;
             office.location = await getLocation(office.address)
             if (office.location)
                 office.isochrone = await getIsochrone(office.location.geometry.coordinates.reverse(), 1500);
+            
             cleaned.push(office)
+            id++;
         }
     }
     return cleaned

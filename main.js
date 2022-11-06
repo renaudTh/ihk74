@@ -1,5 +1,3 @@
-
-
 async function getLocationFromQuery(query) {
 
     let response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&addressdetails=1`)
@@ -14,14 +12,14 @@ async function getLocationFromQueryFrance(query) {
     return data.reverse()
 }
 
-async function getLocationFromFrance(query) {
+async function getUniqueLocationFromFrance(query) {
     let response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}&limit=1`,{method: 'GET', mode:'cors'})
     let data = await response.json();
-    return data
+    return data.features[0]
 }
 function initMap(coordinates, id) {
 
-    var map = L.map(id).setView(coordinates, 13);
+    var map = L.map(id).setView(coordinates, 11);
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -82,8 +80,31 @@ function swapped(array) {
     return converted
 }
 
+function officeTemplate(office, map){
 
+    let container = document.createElement('div')
+    container.id = office.id;
+    container.classList.add('office')
+    container.innerHTML = `<h3>${office.name}</h3><p>${office.address.street}<br>${office.address.postalCode} ${office.address.city}</p>`
 
+    container.addEventListener('click', ()=>{
+        let previous = document.getElementsByClassName('selected');
+        [...previous].forEach((elt) => elt.classList.remove('selected'))
+        container.classList.add('selected')
+        console.log(getSelectedIndex())
+    })
+    return container;
+}
+function officeListTemplate(parentNode, officeList, map){
+    for(let office of officeList){
+        let template = officeTemplate(office, map);
+        parentNode.appendChild(template);
+    }
+}
+function getSelectedIndex(){
+    let selected = document.getElementsByClassName('selected');
+    return selected[0].id;
+}
 async function main() {
 
 
@@ -96,13 +117,19 @@ async function main() {
         plotPoint(map, elt.location);
         plotIsochrone(map,elt.isochrone, 'blue')
     }
+
+    officeListTemplate(officeList, cab, map);    
+    search.addEventListener('click', async () => {
+
+        let query = address.value;
+        let data = await getUniqueLocationFromFrance(query)
+        
+        
+    })
+    
 }
 
 main();
 
-search.addEventListener('click', async () => {
 
-    let query = address.value;
-    let data = await getLocationFromQuery(query)
-    console.log(data)
-})
+
