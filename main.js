@@ -131,34 +131,28 @@ function minOffice(matrix) {
 }
 
 async function getRoute(start, end) {
-
-    let url = "https://api.openrouteservice.org/v2/directions/driving-car/geojson"
-    let body = {
-        coordinates: [start, end],
-        instructions: false,
-        units: "km"
-    }
-
-    let requestParams = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": '5b3ce3597851110001cf624849f34c231cdf421d93bca946751bfc5e'
-        },
-        mode: "cors",
-        body: JSON.stringify(body)
-    }
-    let res = await fetch(url, requestParams)
+    let url = `http://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson`
+    let res = await fetch(url);
     let data = await res.json();
-    return data
+    return data.routes[0];
 }
+
 
 async function fetchOfficeList() {
     let res = await fetch('office.json', { mode: 'no-cors' })
     let officeData = await res.json();
     return officeData.map((office) => Office.from(office))
 }
+function computePrice(distance){
+    let ifd = 2.5;
+    let ihk = Math.round((distance*2) - 2);
+    return ifd + 0.51*ihk;
+}
 
+function priceDetails(distance){
+    let ihk = Math.round((distance*2) - 2);
+    return `(${distance.toFixed(2)} x 2) - 2 arrondi = ${ihk}, donc total = 2.5 + ${ihk}x0.51 = ${2.5+ihk*0.51}`;
+}
 async function main() {
 
     let officeList = await fetchOfficeList();
@@ -177,8 +171,15 @@ async function main() {
         })
     });
     document.getElementById(selected.toString()).classList.add('selected');
-
-    
+    let map = L.map('map').setView([
+        6.3046332,
+        46.0763007
+    ].reverse(), 11);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    let layers = L.geoJSON();
     search.addEventListener('click', async () => {
         if (address.value != "") {
             let query = address.value;
@@ -195,29 +196,22 @@ async function main() {
             let theMin = minOffice(matrix);
             let theMinOffice = officeList[theMin.office_id];
             let selectedOffice = officeList[selected];
-            console.log(`Le cabinet le plus proche est ${theMinOffice.name} à ${theMin.distance} km`);
-            console.log(`Le cabinet sélectionné est ${selectedOffice.name}, à ${matrix[selected].distance} km`);
-
-            
-
             let minRoute = await getRoute(locations[0], locations[theMin.office_id+1]);
             let selectedRoute = await getRoute(locations[0], locations[selected+1]);
-            
-            let map = L.map('map').setView([
-                6.3046332,
-                46.0763007
-            ].reverse(), 11);
-            const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-            L.geoJSON(theMinOffice.location).addTo(map)
-            L.geoJson(selectedOffice.location).addTo(map)
-            L.marker(locations[0].reverse()).addTo(map)
+            results.innerHTML = `<p>Le cabinet le plus proche est ${theMinOffice.name} à ${(minRoute.distance / 1000).toFixed(2)} km</p> 
+                                <p>Le cabinet ${selectedOffice.name} se trouve à ${(selectedRoute.distance / 1000).toFixed(2)} km</p>
+                                <p><strong>Tarif applicable : ${computePrice(minRoute.distance / 1000)} €.</strong>
+                                <p>Détails : ${priceDetails(minRoute.distance / 1000)}`;
 
-            L.geoJSON(minRoute).addTo(map);
-            L.geoJSON(selectedRoute).addTo(map);
-          
+            layers.clearLayers();
+            layers.addData(theMinOffice.location);
+            layers.addData(selectedOffice.location)
+            layers.addData(data);
+            layers.addData(minRoute.geometry);
+            layers.addData(selectedRoute.geometry);
+            layers.addTo(map);
+            map.fitBounds(layers.getBounds());
+
         }
 
     });
