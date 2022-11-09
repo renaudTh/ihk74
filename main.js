@@ -204,7 +204,7 @@ async function main() {
                                 <p>Détails : ${priceDetails(minRoute.distance / 1000)}`;
 
             layers.clearLayers();
-            layers.addData(theMinOffice.location);
+            layers.addData(theMinOffice.location)
             layers.addData(selectedOffice.location)
             layers.addData(data);
             layers.addData(minRoute.geometry);
