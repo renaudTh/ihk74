@@ -35,6 +35,8 @@ async function getUniqueLocationFromFrance(query) {
     let data = await response.json();
     return data.features[0]
 }
+
+
 function initMap(coordinates, id) {
 
     var map = L.map(id).setView(coordinates, 11);
@@ -43,37 +45,6 @@ function initMap(coordinates, id) {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     return map
-}
-
-
-function officeTemplate(office, map) {
-
-    let container = document.createElement('div')
-    container.id = office.id;
-    container.classList.add('office')
-    container.innerHTML = `<h3>${office.name}</h3><p>${office.address.street}<br>${office.address.postalCode} ${office.address.city}</p>`
-
-    container.addEventListener('click', () => {
-        let previous = document.getElementsByClassName('selected');
-        [...previous].forEach((elt) => elt.classList.remove('selected'))
-        container.classList.add('selected')
-
-    })
-    return container;
-}
-function officeListTemplate(parentNode, officeList, map) {
-    for (let office of officeList) {
-        let template = officeTemplate(office, map);
-        parentNode.appendChild(template);
-    }
-}
-
-function getCoordinates(office) {
-    return office.geometry.coordinates;
-}
-function getSelectedIndex() {
-    let selected = document.getElementsByClassName('selected');
-    return parseInt(selected[0].id);
 }
 
 async function getMatrixOsrm(locations){
@@ -93,48 +64,8 @@ async function getMatrixOsrm(locations){
     let res = await fetch(url);
     let data = await res.json();
     return data;
-
-}
-async function getMatrix(locations) {
-
-    let size = locations.length;
-    let sources = [...Array(size - 1).keys()].map((elt => (elt + 1 - '0')));
-
-    let url = "https://api.openrouteservice.org/v2/matrix/driving-car/"
-    let body = {
-        locations: locations,
-        destinations: [0],
-        sources: sources,
-        metrics: ["distance"],
-        units: "km"
-    }
-
-    let requestParams = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": '5b3ce3597851110001cf624849f34c231cdf421d93bca946751bfc5e'
-        },
-        mode: "cors",
-        body: JSON.stringify(body)
-    }
-    let res = await fetch(url, requestParams)
-    let data = await res.json();
-    return data.distances;
 }
 
-function prettifyMatrix(matrix){
-
-    let pretty = []
-    for(let i = 0; i < matrix.length; i++){
-        pretty.push({
-            office_id: i,
-            distance: matrix[i][0],
-
-        })
-    }
-    return pretty
-}
 function minOffice(matrix) {
 
     let dmin = Math.min();
