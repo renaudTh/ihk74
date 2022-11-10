@@ -76,6 +76,25 @@ function getSelectedIndex() {
     return parseInt(selected[0].id);
 }
 
+async function getMatrixOsrm(locations){
+
+    let destinations = 0;
+    let locationsUrl = locations[0][0]+","+locations[0][1]+";";
+    let sources = "";
+    for(let i = 1; i < locations.length; i++){
+        let coord = locations[i]
+        locationsUrl += coord[0]+","+coord[1]+";";
+        sources += i+";" 
+    }
+    locationsUrl = locationsUrl.substring(0, locationsUrl.length - 1);
+    sources = sources.substring(0, sources.length - 1);
+
+    let url = "http://router.project-osrm.org/table/v1/driving/"+locationsUrl+"?sources="+sources+"&destinations="+destinations+"&annotations=distance";
+    let res = await fetch(url);
+    let data = await res.json();
+    return data;
+
+}
 async function getMatrix(locations) {
 
     let size = locations.length;
@@ -190,7 +209,7 @@ async function main() {
             for (let office of officeList) {
                 locations.push(office.getCoordinates());
             }
-            
+            let osrm = await getMatrixOsrm(locations);
             let matrix = await getMatrix(locations);
             matrix = prettifyMatrix(matrix)
             let theMin = minOffice(matrix);
