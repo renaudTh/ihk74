@@ -19,16 +19,18 @@ class DAO{
     }
 
     static async getRoutes(start, end){
-        let url = `http://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson`
+        let url = `http://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&continue_straight=false`
         let res = await fetch(url);
         let data = await res.json();
-        return data.routes;
+        return data.routes[0];
     }
 
     static async getNominatimLocation(query){
         let response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&addressdetails=1`)
         let data = await response.json();
-        return data.features[0];
+        if (data.features.length >= 1)
+            return data.features[0];
+        return 0;
     }
 
     static async getAddressLocation(query){
@@ -44,3 +46,4 @@ class DAO{
         return address;
     }
 }
+
