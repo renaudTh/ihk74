@@ -1,24 +1,3 @@
-class Office {
-
-    constructor() { }
-
-    static from(json) {
-        return Object.assign(new Office(), json);
-    }
-    getLocation() {
-        return this.location;
-    }
-    getCoordinates() {
-        return this.location.geometry.coordinates;
-    }
-    template() {
-        let container = document.createElement('div')
-        container.id = this.id;
-        container.classList.add('office')
-        container.innerHTML = `<h3>${this.name}</h3><p>${this.address.street}<br>${this.address.postalCode} ${this.address.city}</p>`
-        return container;
-    }
-}
 
 function initMap(coordinates, id) {
 
@@ -35,21 +14,27 @@ async function fetchOfficeList() {
     let officeData = await res.json();
     return officeData.map((office) => Office.from(office))
 }
-function computePrice(distance){
+function computePrice(distance) {
     let ifd = 2.5;
-    let ihk = Math.round((distance*2) - 2);
-    return ifd + 0.51*ihk;
+    let ihk = Math.round((distance * 2) - 2);
+    return ifd + 0.51 * ihk;
+}
+function priceDetails(distance) {
+    let ihk = Math.round((distance * 2) - 2);
+    return `(${distance.toFixed(2)} x 2) - 2 arrondi = ${ihk}, donc total = 2.5 + ${ihk}x0.51 = ${2.5 + ihk * 0.51}`;
 }
 
-function priceDetails(distance){
-    let ihk = Math.round((distance*2) - 2);
-    return `(${distance.toFixed(2)} x 2) - 2 arrondi = ${ihk}, donc total = 2.5 + ${ihk}x0.51 = ${2.5+ihk*0.51}`;
+function printResults(nearestOffice, minRoute, selectedOffice, selectedRoute) {
+    results.innerHTML = `<div><p>Le cabinet le plus proche est ${nearestOffice.name} à ${(minRoute.distance / 1000).toFixed(2)} km</p> 
+    <p>Le cabinet ${selectedOffice.name} se trouve à ${(selectedRoute.distance / 1000).toFixed(2)} km</p>
+    <p><strong>Tarif applicable : ${computePrice(minRoute.distance / 1000)} €.</strong>
+    <p>Détails : ${priceDetails(minRoute.distance / 1000)}</div>`;
 }
 async function main() {
 
     let officeList = await fetchOfficeList();
     let selected = 12;
-
+    let loading = false;
     officeList.forEach((office) => {
         let template = office.template();
         document.getElementById('officeList').appendChild(template);
@@ -63,6 +48,7 @@ async function main() {
         })
     });
     document.getElementById(selected.toString()).classList.add('selected');
+
     let map = L.map('map').setView([
         6.3046332,
         46.0763007
@@ -72,38 +58,27 @@ async function main() {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     let layers = L.geoJSON();
-    search.addEventListener('click', async () => {
+    patientAddress.addEventListener('submit', async (event) => {
+        event.preventDefault();
         if (address.value != "") {
+
+            results.innerHTML = "<div class='loader'></div>";
             let query = address.value;
-            //Get patient location
+            //Get patient location from query
             let patient = await DAO.getLocation(query);
-            //Build locations array
-            let locations = [];
-            locations.push(patient.geometry.coordinates);
-            for (let office of officeList) {
-                locations.push(office.getCoordinates());
-            }
             //compute Distance matrix
-            let matrix = await DAO.getMatrix(locations);
-            matrix = matrix.distances.map((elt) => elt[0])
-            //Extract min office_id
-            let min = Math.min(...matrix);
-            let theMin = {
-                min: min,
-                index: matrix.indexOf(min)
-            }
-            let theMinOffice = officeList[theMin.index];
-            let selectedOffice = officeList[selected];
-            let minRoute = await DAO.getRoutes(locations[0], locations[theMin.index+1]);
-            let selectedRoute = await DAO.getRoutes(locations[0], locations[selected+1]);
-            
-            results.innerHTML = `<p>Le cabinet le plus proche est ${theMinOffice.name} à ${(minRoute.distance / 1000).toFixed(2)} km</p> 
-                                <p>Le cabinet ${selectedOffice.name} se trouve à ${(selectedRoute.distance / 1000).toFixed(2)} km</p>
-                                <p><strong>Tarif applicable : ${computePrice(minRoute.distance / 1000)} €.</strong>
-                                <p>Détails : ${priceDetails(minRoute.distance / 1000)}`;
+            let matrix = new Matrix(patient, officeList);
+            await matrix.fetchMatrix();
+            let nearestOffice = matrix.findNearestOffice();
+            let selectedOffice = matrix.findSelectedOffice(selected);
+            let minRoute = await nearestOffice.computeRouteTo(matrix.getPatientLocation());
+            let selectedRoute = await selectedOffice.computeRouteTo(matrix.getPatientLocation());
+
+            //TODO: check if selected distance isn't lower than the actual minimum
+            printResults(nearestOffice, minRoute, selectedOffice, selectedRoute);
 
             layers.clearLayers();
-            layers.addData(theMinOffice.location)
+            layers.addData(nearestOffice.location)
             layers.addData(selectedOffice.location)
             layers.addData(patient);
             layers.addData(minRoute.geometry);

@@ -22,20 +22,25 @@
         <div class="header">
             Indemnités Horo Kilométriques 74
         </div>
-        <input type="text" name="address" id="address" value="528 route des luches 74800 Saint Sixt">
-        <input type="button" value="Rechercher" id="search">
+        <form id="patientAddress">
+            <input type="text" name="address" id="address" value="528 route des luches 74800 Saint Sixt">
+            <input type="submit" value="Rechercher" id="search">
+        </form>
+
 
         <div class="container">
             <div id="map"></div>
             <div class="text">
-                <div id="results"></div>
+                <div id="results">
+                    </p>Les résultats de la recherche s'afficheront ici</p>
+                </div>
                 <div id="officeList"></div>
             </div>
 
         </div>
     </div>
 
-
+    <script src="Objects.js"></script>
     <script src="DAO.js"></script>
     <script src="main.js"></script>
 
