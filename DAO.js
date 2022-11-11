@@ -51,9 +51,11 @@ class DAO{
     }
     
     static async getLocation(query){
-        let nominatim = await this.getNominatimLocation(query);
-        if(nominatim) return nominatim;
-        let address = this.getAddressLocation(query);
+        let address = await this.getNominatimLocation(query);
+        if(!address){
+            address = await this.getAddressLocation(query);
+        }
+        if(!address) return 0;
         return address;
     }
 }

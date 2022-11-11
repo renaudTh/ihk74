@@ -21,13 +21,13 @@ function computePrice(distance) {
 }
 function priceDetails(distance) {
     let ihk = Math.round((distance * 2) - 2);
-    return `(${distance.toFixed(2)} x 2) - 2 arrondi = ${ihk}, donc total = 2.5 + ${ihk}x0.51 = ${2.5 + ihk * 0.51}`;
+    return `(${distance.toFixed(2)} x 2) - 2 arrondi = ${ihk}, donc total = 2.5 + ${ihk}x0.51 = ${(2.5 + ihk * 0.51).toFixed(2)}`;
 }
 
 function printResults(nearestOffice, minRoute, selectedOffice, selectedRoute) {
     results.innerHTML = `<div><p>Le cabinet le plus proche est ${nearestOffice.name} à ${(minRoute.distance / 1000).toFixed(2)} km</p> 
     <p>Le cabinet ${selectedOffice.name} se trouve à ${(selectedRoute.distance / 1000).toFixed(2)} km</p>
-    <p><strong>Tarif applicable : ${computePrice(minRoute.distance / 1000)} €.</strong>
+    <p><strong>Tarif applicable : ${computePrice(minRoute.distance / 1000).toFixed(2)} €.</strong>
     <p>Détails : ${priceDetails(minRoute.distance / 1000)}</div>`;
 }
 async function main() {

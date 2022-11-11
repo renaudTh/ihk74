@@ -1,92 +1,131 @@
-*{
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     box-sizing: border-box;
+    padding:0;
+    margin:0;
 }
 
-h3,p{
+h3,
+p {
     margin: 5px;
 }
-
-.app{
+ul{
+    list-style-position: inside;
+}
+li ul{
+    margin-left: 25px;
+}
+li {
+    margin: 3px;
+}
+.app {
     margin: auto;
-    width: 1000px;
+    width: 1200px;
+    
 }
-#map{
-    width: 50%;
-    height: 500px;
+
+#map {
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
 }
-#address{
-    width: 500px;
+
+#address {
+    width: 79%;
     height: 50px;
     border-radius: 5px;
     border: 1px solid grey;
-    padding: 5px;
+    margin: 0;
+    padding: 10px;
 }
-input[type=text]:focus{
-    border:1px solid lightblue;
-}
-#search{
-    height: 30px;
-    border-radius: 5px;
 
+#search {
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: lightblue;
+    border: 0;
 }
-#officeList{
-    
+
+#search:hover {
+    background-color: rgb(90, 190, 225);
+    cursor: pointer;
+}
+
+#officeList {
+
     width: 100%;
     height: 80%;
-    overflow-y:scroll;
-    padding: 5px;
+    overflow-y: scroll;
 }
-#results{
+
+#results {
     width: 100%;
-    height: 100px;
+    height: 20%;
     border: 1px solid black;
     border-radius: 10px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px;
-    padding: 5px;
-
 }
-.header{
+
+.header {
     width: 100%;
-    height: 60px;
-    background-color: grey;
+    height: 40px;
+    background-color: lightblue;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 25px;
 }
-.container{
-    width: 1000px;
-    height: 500px;
+
+.container {
+    width: 1200px;
+    height: 600px;
     display: flex;
+
 }
-.office{
+
+.office {
     cursor: pointer;
 }
 
-.selected{
+.selected {
     background-color: lightgray;
 }
-.text{
+
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
     display: flex;
     width: 50%;
     flex-direction: column;
+    margin-left: 5px;
 }
-.loader{
-border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
+
+.loader {
+    border: 10px solid lightgray;
+    /* Light grey */
+    border-top: 10px solid rgb(90, 190, 225);
+    /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
