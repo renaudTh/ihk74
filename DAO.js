@@ -12,14 +12,14 @@ class DAO{
         locationsUrl = locationsUrl.substring(0, locationsUrl.length - 1);
         sources = sources.substring(0, sources.length - 1);
     
-        let url = "http://router.project-osrm.org/table/v1/driving/"+locationsUrl+"?sources="+sources+"&destinations="+destinations+"&annotations=distance";
+        let url = "https://router.project-osrm.org/table/v1/driving/"+locationsUrl+"?sources="+sources+"&destinations="+destinations+"&annotations=distance";
         let res = await fetch(url);
         let data = await res.json();
         return data;
     }
 
     static async getRoutes(start, end){
-        let url = `http://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&continue_straight=false`
+        let url = `https://router.project-osrm.org/route/v1/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&continue_straight=false`
         let res = await fetch(url);
         let data = await res.json();
         return data.routes[0];
