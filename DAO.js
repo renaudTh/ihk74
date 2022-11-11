@@ -27,6 +27,9 @@ class DAO{
 
     static async getNominatimLocation(query){
         let response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=geojson&addressdetails=1`)
+        if(response.status != 200){
+            return;
+        }
         let data = await response.json();
         if (data.features.length >= 1)
             return data.features[0];
@@ -35,7 +38,15 @@ class DAO{
 
     static async getAddressLocation(query){
         let response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}&limit=1`, { method: 'GET', mode: 'cors' })
+        if(response.status != 200){
+            alert('Erreur du serveur');
+            throw new Error(response);
+        }
         let data = await response.json();
+        if(data.features.length == 0){
+            alert("destination inconnue, veuillez réessayer");
+            return 0;
+        }
         return data.features[0]
     }
     

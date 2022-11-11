@@ -66,6 +66,11 @@ async function main() {
             let query = address.value;
             //Get patient location from query
             let patient = await DAO.getLocation(query);
+            if(!patient){
+                
+                results.innerHTML = "Les résultats de votre recherche apparaîtront ici.";
+                return;
+            }
             //compute Distance matrix
             let matrix = new Matrix(patient, officeList);
             await matrix.fetchMatrix();
