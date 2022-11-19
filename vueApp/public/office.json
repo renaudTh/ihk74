@@ -1,0 +1,747 @@
+[
+    {
+        "name": "ISABELLE REVERCHON",
+        "active": true,
+        "address": {
+            "street": "20 RUE DE LA GARE",
+            "city": "REIGNIER ESERY",
+            "postalCode": "74930",
+            "country": "France"
+        },
+        "id": 0,
+        "location": {
+            "type": "Street",
+            "id": "FR/STR/p0/3336516",
+            "score": 15.2930469513,
+            "matchConfidence": {
+                "score": 0.9097647368718682
+            },
+            "address": {
+                "streetName": "Rue de la Gare",
+                "municipality": "Reignier-Ésery",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74930",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "Rue de la Gare, 74930 Reignier-Ésery",
+                "localName": "Reignier-Ésery"
+            },
+            "position": {
+                "lng": 6.2668,
+                "lat": 46.12972
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.26605,
+                    "lat": 46.13299
+                },
+                "btmRightPoint": {
+                    "lng": 6.26828,
+                    "lat": 46.12639
+                }
+            }
+        }
+    },
+    {
+        "name": "CABINET ALTER FABIENNE",
+        "active": true,
+        "address": {
+            "street": "99 ROUTE DES USSES",
+            "city": "GROISY",
+            "postalCode": "74570",
+            "country": "France"
+        },
+        "id": 1,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p0/1186219",
+            "score": 12.4993219376,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "99",
+                "streetName": "Route des Usses",
+                "municipality": "Groisy",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74570",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "99 Route des Usses, 74570 Groisy",
+                "localName": "Groisy"
+            },
+            "position": {
+                "lng": 6.16909,
+                "lat": 46.01041
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.1678,
+                    "lat": 46.01131
+                },
+                "btmRightPoint": {
+                    "lng": 6.17038,
+                    "lat": 46.00951
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.01043,
+                        "lon": 6.16916
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET FAYOUX MAGALI",
+        "active": true,
+        "address": {
+            "street": "22 PLACE DE L EGLISE",
+            "city": "THORENS GLIERES",
+            "postalCode": "74570",
+            "country": "France"
+        },
+        "id": 3,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p4/2702077",
+            "score": 16.4232540131,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "22",
+                "streetName": "Place de l'Église",
+                "municipalitySubdivision": "Thorens-Glières",
+                "municipality": "Fillière",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74570",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "22 Place de l'Église, 74570 Fillière",
+                "localName": "Fillière"
+            },
+            "position": {
+                "lng": 6.24709,
+                "lat": 45.99705
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.2458,
+                    "lat": 45.99795
+                },
+                "btmRightPoint": {
+                    "lng": 6.24838,
+                    "lat": 45.99615
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 45.99702,
+                        "lon": 6.24709
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET GROS NATHALIE",
+        "active": true,
+        "address": {
+            "street": "153 PLACE DES ARCADES",
+            "city": "ST PIERRE EN FAUCIGNY",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 4,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p5/1509646",
+            "score": 18.6029548645,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "153",
+                "streetName": "Place des Arcades",
+                "municipality": "Saint-Pierre-en-Faucigny",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "153 Place des Arcades, 74800 Saint-Pierre-en-Faucigny",
+                "localName": "Saint-Pierre-en-Faucigny"
+            },
+            "position": {
+                "lng": 6.37529,
+                "lat": 46.05742
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.37399,
+                    "lat": 46.05832
+                },
+                "btmRightPoint": {
+                    "lng": 6.37659,
+                    "lat": 46.05652
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.05739,
+                        "lon": 6.37513
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET MANERA DELPHINE",
+        "active": true,
+        "address": {
+            "street": "72 ROUTE DE LA VIGNETTAZ",
+            "city": "CORNIER",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 5,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p4/2227899",
+            "score": 14.7711162567,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "72",
+                "streetName": "Route de la Vignettaz",
+                "municipality": "Cornier",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "72 Route de la Vignettaz, 74800 Cornier",
+                "localName": "Cornier"
+            },
+            "position": {
+                "lng": 6.29931,
+                "lat": 46.0923
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.29801,
+                    "lat": 46.0932
+                },
+                "btmRightPoint": {
+                    "lng": 6.30061,
+                    "lat": 46.0914
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.09226,
+                        "lon": 6.29937
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET FOURNIER-BIDOZ BLANDINE",
+        "active": true,
+        "address": {
+            "street": "247 RUE INGENIEUR SANSOUBE",
+            "city": "LA ROCHE SUR FORON",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 6,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p4/2208526",
+            "score": 18.6100654602,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "247",
+                "streetName": "Rue Ingénieur Sansoube",
+                "municipality": "La Roche-sur-Foron",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "247 Rue Ingénieur Sansoube, 74800 La Roche-sur-Foron",
+                "localName": "La Roche-sur-Foron"
+            },
+            "position": {
+                "lng": 6.30109,
+                "lat": 46.07612
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.29979,
+                    "lat": 46.07702
+                },
+                "btmRightPoint": {
+                    "lng": 6.30239,
+                    "lat": 46.07522
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.07624,
+                        "lon": 6.30107
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET CHAUVIGNE VALERIE",
+        "active": true,
+        "address": {
+            "street": "705 AVENUE DE LA REPUBLIQUE",
+            "city": "SAINT PIERRE EN FAUCIGNY",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 7,
+        "location": {
+            "type": "Address Range",
+            "id": "FR/ADDR/p0/1924423",
+            "score": 20.6329593658,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "705",
+                "streetName": "Avenue de la République",
+                "municipality": "Saint-Pierre-en-Faucigny",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "705 Avenue de la République, 74800 Saint-Pierre-en-Faucigny",
+                "localName": "Saint-Pierre-en-Faucigny"
+            },
+            "position": {
+                "lng": 6.3737,
+                "lat": 46.05918
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.37345,
+                    "lat": 46.05926
+                },
+                "btmRightPoint": {
+                    "lng": 6.37384,
+                    "lat": 46.05904
+                }
+            },
+            "addressRanges": {
+                "rangeLeft": "673 - 735",
+                "from": {
+                    "lat": 46.05926,
+                    "lon": 6.37346
+                },
+                "to": {
+                    "lat": 46.05904,
+                    "lon": 6.37384
+                }
+            }
+        }
+    },
+    {
+        "name": "CABINET BACCARELLI MATHIEU",
+        "active": true,
+        "address": {
+            "street": "107 ROUTE DE L EGLISE",
+            "city": "PERS JUSSY",
+            "postalCode": "74930",
+            "country": "France"
+        },
+        "id": 8,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p0/1554730",
+            "score": 16.8458442688,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "107",
+                "streetName": "Route de l'Église",
+                "municipality": "Pers-Jussy",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74930",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "107 Route de l'Église, 74930 Pers-Jussy",
+                "localName": "Pers-Jussy"
+            },
+            "position": {
+                "lng": 6.26555,
+                "lat": 46.10826
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.26425,
+                    "lat": 46.10916
+                },
+                "btmRightPoint": {
+                    "lng": 6.26685,
+                    "lat": 46.10736
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.10823,
+                        "lon": 6.26552
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET GIRAULT DOMINIQUE",
+        "active": true,
+        "address": {
+            "street": "55 RUE DES ECOLES",
+            "city": "PERS JUSSY",
+            "postalCode": "74930",
+            "country": "France"
+        },
+        "id": 10,
+        "location": {
+            "type": "Address Range",
+            "id": "FR/ADDR/p0/9677404",
+            "score": 14.5266275406,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "55",
+                "streetName": "Chemin des Écoles",
+                "municipality": "Pers-Jussy",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74930",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "55 Chemin des Écoles, 74930 Pers-Jussy",
+                "localName": "Pers-Jussy"
+            },
+            "position": {
+                "lng": 6.26493,
+                "lat": 46.10931
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.26498,
+                    "lat": 46.10931
+                },
+                "btmRightPoint": {
+                    "lng": 6.26502,
+                    "lat": 46.10928
+                }
+            },
+            "addressRanges": {
+                "rangeLeft": "55 - 55",
+                "from": {
+                    "lat": 46.10928,
+                    "lon": 6.26498
+                },
+                "to": {
+                    "lat": 46.10931,
+                    "lon": 6.26502
+                }
+            }
+        }
+    },
+    {
+        "name": "CABINET GONCALVES MARION",
+        "active": true,
+        "address": {
+            "street": "28 PLACE DE L EGLISE",
+            "city": "ST PIERRE EN FAUCIGNY",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 11,
+        "location": {
+            "type": "Street",
+            "id": "FR/STR/p0/5498708",
+            "score": 16.7336959839,
+            "matchConfidence": {
+                "score": 0.7497618331925942
+            },
+            "address": {
+                "streetName": "Place L'Église",
+                "municipality": "Saint-Pierre-en-Faucigny",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "Place L'Église, 74800 Saint-Pierre-en-Faucigny",
+                "localName": "Saint-Pierre-en-Faucigny"
+            },
+            "position": {
+                "lng": 6.36693,
+                "lat": 46.05948
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.36693,
+                    "lat": 46.05974
+                },
+                "btmRightPoint": {
+                    "lng": 6.36738,
+                    "lat": 46.05942
+                }
+            }
+        }
+    },
+    {
+        "name": "SCP DESPLANDS-VOLPI-FOURNIER-PENER",
+        "active": true,
+        "address": {
+            "street": "255 AVENUE JEAN MORIN",
+            "city": "LA ROCHE SUR FORON",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 12,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p0/1650529",
+            "score": 18.6100654602,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "255",
+                "streetName": "Avenue Jean Morin",
+                "municipality": "La Roche-sur-Foron",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "255 Avenue Jean Morin, 74800 La Roche-sur-Foron",
+                "localName": "La Roche-sur-Foron"
+            },
+            "position": {
+                "lng": 6.30327,
+                "lat": 46.07788
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.30197,
+                    "lat": 46.07878
+                },
+                "btmRightPoint": {
+                    "lng": 6.30457,
+                    "lat": 46.07698
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.07791,
+                        "lon": 6.30331
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET FEBVRE MELANIE",
+        "active": true,
+        "address": {
+            "street": "297 GRANDE RUE",
+            "city": "REIGNIER ESERY",
+            "postalCode": "74930",
+            "country": "France"
+        },
+        "id": 13,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p5/1211868",
+            "score": 12.5128488541,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "297",
+                "streetName": "Grande Rue",
+                "municipality": "Reignier-Ésery",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74930",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "297 Grande Rue, 74930 Reignier-Ésery",
+                "localName": "Reignier-Ésery"
+            },
+            "position": {
+                "lng": 6.26944,
+                "lat": 46.13622
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.26814,
+                    "lat": 46.13712
+                },
+                "btmRightPoint": {
+                    "lng": 6.27074,
+                    "lat": 46.13532
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.13623,
+                        "lon": 6.2694
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CABINET JACZMINSKI ALAIN",
+        "active": true,
+        "address": {
+            "street": "33 PLACE ANDREVETAN",
+            "city": "LA ROCHE SUR FORON",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 14,
+        "location": {
+            "type": "Street",
+            "id": "FR/STR/p0/4421244",
+            "score": 14.2673339844,
+            "matchConfidence": {
+                "score": 0.9080830650340663
+            },
+            "address": {
+                "streetName": "Place André Vétan",
+                "municipality": "La Roche-sur-Foron",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "Place André Vétan, 74800 La Roche-sur-Foron",
+                "localName": "La Roche-sur-Foron"
+            },
+            "position": {
+                "lng": 6.31076,
+                "lat": 46.06641
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.31025,
+                    "lat": 46.0666
+                },
+                "btmRightPoint": {
+                    "lng": 6.31115,
+                    "lat": 46.06606
+                }
+            }
+        }
+    },
+    {
+        "name": "CABINET SIBUE ANNE LAURE",
+        "active": true,
+        "address": {
+            "street": "356 AVENUE CHARLES DE GAULLE",
+            "city": "LA ROCHE SUR FORON",
+            "postalCode": "74800",
+            "country": "France"
+        },
+        "id": 15,
+        "location": {
+            "type": "Point Address",
+            "id": "FR/PAD/p5/1268103",
+            "score": 20.7519397736,
+            "matchConfidence": {
+                "score": 1
+            },
+            "address": {
+                "streetNumber": "356",
+                "streetName": "Avenue Charles de Gaulle",
+                "municipality": "La Roche-sur-Foron",
+                "countrySecondarySubdivision": "Haute-Savoie",
+                "countrySubdivision": "Auvergne-Rhône-Alpes",
+                "postalCode": "74800",
+                "countryCode": "FR",
+                "country": "France",
+                "countryCodeISO3": "FRA",
+                "freeformAddress": "356 Avenue Charles de Gaulle, 74800 La Roche-sur-Foron",
+                "localName": "La Roche-sur-Foron"
+            },
+            "position": {
+                "lng": 6.30918,
+                "lat": 46.06969
+            },
+            "viewport": {
+                "topLeftPoint": {
+                    "lng": 6.30788,
+                    "lat": 46.07059
+                },
+                "btmRightPoint": {
+                    "lng": 6.31048,
+                    "lat": 46.06879
+                }
+            },
+            "entryPoints": [
+                {
+                    "type": "main",
+                    "position": {
+                        "lat": 46.06975,
+                        "lon": 6.30899
+                    }
+                }
+            ]
+        }
+    }
+]
