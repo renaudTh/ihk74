@@ -1,24 +1,30 @@
 <template>
-<div id="map">
-
-</div>
+    <div id="map"></div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+import { useOfficesStore } from '../stores/officesStore';
+import { useResultsStore } from '../stores/resultsStore';
 
-const initMap = async () => {
+const officesStore = useOfficesStore();
+const resultsStore = useResultsStore();
 
-    await  tt.map({
+resultsStore.$subscribe((mutation, state) => {
+
+    if(state.status == "done"){
+        console.log("hello");
+    }
+})
+
+
+onMounted(() => {
+    let map = tt.map({
         key: import.meta.env.VITE_TOMTOM_API_KEY,
         container: 'map',
         center: new tt.LngLat(6.31198400559317, 46.06698005363598),
         zoom: 11
     });
-
-}
-onMounted(() => {
-   initMap();
 });
 
 </script>

@@ -5,7 +5,7 @@ export const useOfficesStore = defineStore({
   id: 'offices',
   state: () => ({
     offices: [],
-    selected: 0,
+    selected: 10,
 
   }),
 
@@ -17,22 +17,20 @@ export const useOfficesStore = defineStore({
       this.offices = data;
     },
 
-    selectOne(id){
+    selectOne(id) {
       this.$patch((state) => {
         state.selected = id;
-    })
+      })
     }
   },
   getters: {
-    /*getOne: (state) => {
-        return (id) => state.articles.find((article => article.id == id))
+    getOne: (state) => {
+      return (id) => state.offices.find((office => office.id == id))
     },
-    showPrice: () => {
-        return (article) => (article.prix > 0) ? article.prix + " €" : "Gratuit"
+    getSelected: (state) => {
+      return () => state.offices.find((office => office.id == state.selected))
     },
-    showCategory: () => {
-        return (article) => (article.categories) ? article.categories.nom : 'En vrac'
-    }*/
-  }
+    
 
-})
+  }
+});

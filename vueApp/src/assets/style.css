@@ -5,3 +5,30 @@
     padding:0;
     margin:0;
 }
+
+.officeMarker{
+    width: 32px;
+    height: 32px;
+    background-image: url('hospital.png');
+    text-align: center;
+}
+.loader {
+    border: 10px solid lightgray;
+    /* Light grey */
+    border-top: 10px solid rgb(90, 190, 225);
+    /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
