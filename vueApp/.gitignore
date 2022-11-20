@@ -13,7 +13,7 @@ dist
 dist-ssr
 coverage
 *.local
-
+deploy.sh
 /cypress/videos/
 /cypress/screenshots/
 
@@ -27,3 +27,4 @@ coverage
 *.sln
 *.sw?
 .env
+.env.production

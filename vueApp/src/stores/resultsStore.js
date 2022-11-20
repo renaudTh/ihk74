@@ -43,6 +43,23 @@ export const useResultsStore = defineStore({
             return (ifd + 0.51 * ihk).toFixed(2);
         }
     },
+    priceDetails(){
+        return () => {
+            let s = "";
+            let distance = this.getMinimalDistance();
+            let ifd = 2.5;
+            let ihk = 0
+            if(distance < 1.5){
+                s = `ihk = 0`
+            }
+            else{
+                ihk = Math.round((distance * 2) - 2)
+                s = `ihk = [2x${distance}-2] = ${ihk}`
+            }
+            s+=` ; ifd + 0.51ihk = ${ifd} + 0.51 x ${ihk} = ${this.computePrice()}`;
+            return s;
+        }
+    },
     getNearestOfficeIndex(){
         return () => this.minimalRoute.officeIndex;
     },
