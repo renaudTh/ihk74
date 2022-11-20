@@ -110,6 +110,7 @@ const submit = async () => {
     console.log(r);
     let min = findShortestRoute(r);
     let selectedRoute = r.filter((route) => route.officeIndex === officesStore.selected)[0];
+    resultsStore.setPatientLocation(a);
     resultsStore.setMinimalRoute(min);
     resultsStore.setSelectedRoute(selectedRoute);
     resultsStore.$patch((state) => state.status = "done");

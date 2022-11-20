@@ -12,6 +12,13 @@
     background-image: url('hospital.png');
     text-align: center;
 }
+.houseMarker{
+    width: 32px;
+    height: 32px;
+    background-image: url('home.png');
+    text-align: center;
+
+}
 .loader {
     border: 10px solid lightgray;
     /* Light grey */

@@ -6,6 +6,7 @@ export const useResultsStore = defineStore({
   state: () => ({
     minimalRoute: null,
     selectedRoute: null,
+    patientLocation: null,
     status: "no"
   }),
 
@@ -18,6 +19,11 @@ export const useResultsStore = defineStore({
     setSelectedRoute(route){
         this.$patch((state) => {
             state.selectedRoute = route;
+        })
+    },
+    setPatientLocation(location){
+        this.$patch((state) => {
+            state.patientLocation = location;
         })
     }
   },
